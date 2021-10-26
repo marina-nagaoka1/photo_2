@@ -1,0 +1,62 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+		<script src="script.js"></script>
+		<title>JavaScriptのFileAPIとcanvasで画像のプレビュー</title>
+		</head>
+		<body>
+			<h1>
+				<img src="photoframe.jpg" alt="Photoframe">
+				<br>
+Photoframe
+</br>
+			</h1>
+			<form>
+			<input type="file" accept='image/*' onchange="previewImage(this);">
+			</form>
+			<p>
+			Preview:<br>
+			<canvas id="preview" style="max-width:400px;"></canvas>
+			</p>
+			<script>
+			function previewImage(obj)
+			{
+				var fileReader = new FileReader();
+				fileReader.onload = (function() {
+					var canvas = document.getElementById('preview');
+					var ctx = canvas.getContext('2d');
+					var image = new Image();
+					image.src = fileReader.result;
+					image.onload = (function () {
+						canvas.width = image.width;
+						canvas.height = image.height;
+						ctx.drawImage(image, 0, 0);
+					});
+				});
+				fileReader.readAsDataURL(obj.files[0]);
+			}
+			</script>
+
+
+
+			<section id="contents">
+			  <div class="flex-container">
+
+
+			    <!-- 合成結果用のcanvas -->
+			    <div class="flex-item">
+			    <canvas id="concat" width="500" height="500"></canvas>
+
+			      <!-- 消しゴム -->
+			  <p id="eraser"><button type="button2" id="btn-eraser"><img src="images/eraser-solid.svg" width="32" height="32"></button></p>
+			    </div>
+
+
+
+
+
+			</body>
+			</html>

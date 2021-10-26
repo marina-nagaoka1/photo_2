@@ -1,0 +1,28 @@
+
+    body{
+    background-color:#dddddd;
+    }
+
+    img.image1{
+
+        width: 50px;
+
+    }
+
+    head{
+      width: 100px;
+      height: 100px;
+    }
+
+    p{
+      width: 100px;
+      height: 100px;
+    }
+    img{
+    background-color:#dddddd;
+    color : #000000;
+    margin-right: auto;//ここで中央寄せを指定する。
+    margin-left : auto;
+    width:700px;
+    font-size:62.5%;
+  }
